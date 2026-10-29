@@ -290,6 +290,10 @@ export default function HeapsPage() {
                                         value={inputValue}
                                         onChange={(e) => setInputValue(e.target.value)}
                                         style={{ width: '100px' }}
+                                        disabled={isAnimating}
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter' && !isAnimating) handleInsert();
+                                        }}
                                     />
                                     <button className="btn btn-primary" onClick={handleInsert} disabled={isAnimating}>Insert</button>
                                     <button className="btn btn-secondary" onClick={handleExtract} disabled={isAnimating}>

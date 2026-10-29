@@ -480,7 +480,7 @@ export default function LinkedListsPage() {
 
                             {currentOperation && (
                                 <div className={styles.operationControls}>
-                                    {currentOperation !== 'deleteIndex' && (
+                                    {(currentOperation !== 'deleteIndex' && (
                                         <div className="control-group">
                                             <label className="control-label">Value:</label>
                                             <input
@@ -491,10 +491,19 @@ export default function LinkedListsPage() {
                                                 value={inputValue}
                                                 onChange={(e) => setInputValue(e.target.value)}
                                                 disabled={isAnimating}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter' && !isAnimating) {
+                                                        switch (currentOperation) {
+                                                            case 'insertHead': handleInsertHead(); break;
+                                                            case 'insertTail': handleInsertTail(); break;
+                                                            case 'insertIndex': handleInsertIndex(); break;
+                                                            case 'search': handleSearch(); break;
+                                                        }
+                                                    }
+                                                }}
                                             />
                                         </div>
-                                    )}
-
+                                    ))}
                                     {(currentOperation === 'insertIndex' || currentOperation === 'deleteIndex') && (
                                         <div className="control-group">
                                             <label className="control-label">Index:</label>
@@ -506,6 +515,14 @@ export default function LinkedListsPage() {
                                                 value={inputIndex}
                                                 onChange={(e) => setInputIndex(e.target.value)}
                                                 disabled={isAnimating}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter' && !isAnimating) {
+                                                        switch (currentOperation) {
+                                                            case 'insertIndex': handleInsertIndex(); break;
+                                                            case 'deleteIndex': handleDeleteIndex(); break;
+                                                        }
+                                                    }
+                                                }}
                                             />
                                         </div>
                                     )}
