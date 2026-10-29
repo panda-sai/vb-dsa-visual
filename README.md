@@ -83,7 +83,7 @@ Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Support the project
 
-VB Visual is free and always will be. If it helped you learn something, you can support its development using the **Sponsor** button at the top of this repo. Starring the repo and sharing it with friends helps a lot too. ⭐
+VB Visual is free and always will be. If it helped you learn something, you can support its development with a small contribution via [Razorpay](https://razorpay.me/@vamsibhavani) (UPI, cards, netbanking), or by using the **Sponsor** button at the top of this repo. Starring the repo and sharing it with friends helps a lot too. ⭐
 
 ## License
 
