@@ -404,6 +404,15 @@ export default function ArraysPage() {
                                                 value={inputIndex}
                                                 onChange={(e) => setInputIndex(e.target.value)}
                                                 disabled={isAnimating}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter' && !isAnimating) {
+                                                        switch (currentOperation) {
+                                                            case 'access': handleAccess(); break;
+                                                            case 'insert': handleInsert(); break;
+                                                            case 'delete': handleDelete(); break;
+                                                        }
+                                                    }
+                                                }}
                                             />
                                         </div>
                                     )}
@@ -419,6 +428,14 @@ export default function ArraysPage() {
                                                 value={inputValue}
                                                 onChange={(e) => setInputValue(e.target.value)}
                                                 disabled={isAnimating}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter' && !isAnimating) {
+                                                        switch (currentOperation) {
+                                                            case 'search': handleSearch(); break;
+                                                            case 'insert': handleInsert(); break;
+                                                        }
+                                                    }
+                                                }}
                                             />
                                         </div>
                                     )}
