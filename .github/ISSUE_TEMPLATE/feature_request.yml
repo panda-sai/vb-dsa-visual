@@ -1,0 +1,24 @@
+name: New visualization or feature
+description: Suggest a new topic or an improvement to an existing one
+labels: [enhancement]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic or feature
+      placeholder: e.g. Tries, Dijkstra's algorithm, speed control for Graphs
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What should it show?
+      description: Which operations or steps should be animated? Links to references are helpful.
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'd like to build this myself

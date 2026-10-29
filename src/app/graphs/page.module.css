@@ -1,0 +1,257 @@
+.page {
+    padding: 2rem 0 4rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerIcon {
+    font-size: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Main Grid */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: minmax(0, 1fr) 380px;
+    }
+}
+
+/* Visualization Panel */
+.visualizationPanel {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.panelHeader h2 {
+    font-size: 1.25rem;
+}
+
+.panelActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Graph Container */
+.graphContainer {
+    flex: 1;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    overflow: auto;
+    min-height: 400px;
+    position: relative;
+    cursor: crosshair;
+    /* Default for adding nodes */
+}
+
+.graphContainer.mode-add-edge {
+    cursor: alias;
+}
+
+.graphContainer.mode-move {
+    cursor: grab;
+}
+
+.svgCanvas {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+/* Nodes & Edges */
+.edge {
+    stroke: var(--border-medium);
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.edge.highlight {
+    stroke: var(--accent-yellow);
+    stroke-width: 3;
+}
+
+.nodeGroup {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nodeCircle {
+    fill: var(--bg-tertiary);
+    stroke: var(--border-medium);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.nodeGroup:hover .nodeCircle {
+    stroke: var(--accent-cyan);
+    fill: rgba(6, 182, 212, 0.1);
+}
+
+.nodeGroup.selected .nodeCircle {
+    stroke: var(--accent-cyan);
+    stroke-width: 3;
+    fill: rgba(6, 182, 212, 0.2);
+}
+
+.nodeGroup.visited .nodeCircle {
+    stroke: var(--accent-green);
+    fill: rgba(34, 197, 94, 0.2);
+    animation: pulse-green 0.5s ease;
+}
+
+.nodeGroup.current .nodeCircle {
+    stroke: var(--accent-yellow);
+    fill: rgba(234, 179, 8, 0.2);
+    box-shadow: 0 0 15px var(--accent-yellow);
+}
+
+.nodeText {
+    fill: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 14px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+}
+
+/* Controls Section */
+.controlsSection {
+    margin-top: auto;
+}
+
+.operationControls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.controlRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.modeSwitch {
+    display: flex;
+    background: var(--bg-tertiary);
+    padding: 0.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+}
+
+.modeBtn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modeBtn.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Info Panel */
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infoCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.infoCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.infoCard p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes pulse-green {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+}

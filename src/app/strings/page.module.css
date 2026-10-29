@@ -1,0 +1,337 @@
+.page {
+    padding: 2rem 0 4rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerIcon {
+    font-size: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Main Grid */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: minmax(0, 1fr) 380px;
+    }
+}
+
+/* Visualization Panel */
+.visualizationPanel {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.panelHeader h2 {
+    font-size: 1.25rem;
+}
+
+.panelActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* String Input Section */
+.stringInputSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+/* String Display */
+.stringDisplay {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    min-height: 120px;
+}
+
+.stringLabel {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stringContainer {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.charElement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.charBox {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+}
+
+.charBox.default {
+    border-color: var(--border-medium);
+    background: var(--bg-tertiary);
+}
+
+.charBox.active {
+    border-color: var(--accent-yellow);
+    background: rgba(234, 179, 8, 0.2);
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+    transform: scale(1.1);
+}
+
+.charBox.found {
+    border-color: var(--accent-green);
+    background: rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+    transform: scale(1.05);
+}
+
+.charBox.comparing {
+    border-color: var(--accent-blue);
+    background: rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.charBox.highlight {
+    border-color: var(--accent-purple);
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.charBox.new {
+    border-color: var(--accent-cyan);
+    background: rgba(6, 182, 212, 0.2);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    animation: pop-in 0.3s ease-out;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.charIndex {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Controls Section */
+.controlsSection {
+    margin-top: 1.5rem;
+}
+
+.operationButtons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.operationControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+/* Info Panel */
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infoCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.infoCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.infoCard p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.complexity {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: var(--radius-md);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-purple);
+    text-align: center;
+}
+
+.quickInfo {
+    margin-top: 1.5rem;
+}
+
+.quickInfo h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.quickInfo ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quickInfo li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.quickInfo li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-purple);
+}
+
+/* Code Card */
+.codeCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.codeHeader {
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .headerIcon {
+        font-size: 2.5rem;
+    }
+
+    .operationControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .operationControls .control-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .operationControls .input {
+        flex: 1;
+    }
+
+    .charBox {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .stringInputSection {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stringInputSection .input {
+        width: 100% !important;
+    }
+}

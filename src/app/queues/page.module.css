@@ -1,0 +1,302 @@
+.page {
+    padding: 2rem 0 4rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerIcon {
+    font-size: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Main Grid */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: minmax(0, 1fr) 380px;
+    }
+}
+
+/* Visualization Panel */
+.visualizationPanel {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.panelHeader h2 {
+    font-size: 1.25rem;
+}
+
+.panelActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Queue Container */
+.queueContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: 300px;
+    position: relative;
+}
+
+.queueVisual {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    min-width: 300px;
+    min-height: 100px;
+    border-top: 4px solid var(--border-medium);
+    border-bottom: 4px solid var(--border-medium);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+/* Queue Element */
+.queueElement {
+    height: 60px;
+    width: 60px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.queueElement.new {
+    animation: slide-left-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(6, 182, 212, 0.2);
+    border-color: var(--accent-cyan);
+}
+
+.queueElement.dequeuing {
+    animation: slide-left-out 0.5s ease forwards;
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--accent-red);
+}
+
+.queueElement.peek {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    transform: scale(1.1);
+}
+
+.elementIndex {
+    position: absolute;
+    bottom: -25px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: 'Fira Code', monospace;
+}
+
+.frontLabel,
+.rearLabel {
+    position: absolute;
+    top: -30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.frontLabel {
+    color: var(--accent-green);
+    left: 0;
+}
+
+.frontLabel::after {
+    content: '↓';
+    font-size: 1rem;
+}
+
+.rearLabel {
+    color: var(--accent-yellow);
+    right: 0;
+}
+
+.rearLabel::after {
+    content: '↓';
+    font-size: 1rem;
+}
+
+/* Controls Section */
+.controlsSection {
+    margin-top: auto;
+}
+
+.operationControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+/* Info Panel */
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infoCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.infoCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.infoCard p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.complexity {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: var(--radius-md);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-purple);
+    text-align: center;
+}
+
+/* Code Card */
+.codeCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.codeHeader {
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Animations */
+@keyframes slide-left-in {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left-out {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .headerIcon {
+        font-size: 2.5rem;
+    }
+
+    .operationControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .operationControls .control-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .operationControls .input {
+        flex: 1;
+    }
+}

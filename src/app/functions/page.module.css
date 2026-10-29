@@ -1,0 +1,441 @@
+.page {
+    padding: 2rem 0 4rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerIcon {
+    font-size: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Main Grid */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: minmax(0, 1fr) 380px;
+    }
+}
+
+/* Visualization Panel */
+.visualizationPanel {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.panelHeader h2 {
+    font-size: 1.25rem;
+}
+
+/* Execution Flow */
+.executionFlow {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.callerBox,
+.functionBox {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.functionBox {
+    border-color: var(--accent-purple);
+}
+
+.functionBox.executing {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    animation: pulse 1s infinite;
+}
+
+.boxTitle {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.functionBox .boxTitle {
+    background: rgba(139, 92, 246, 0.2);
+    border-bottom-color: var(--accent-purple);
+}
+
+.boxContent {
+    padding: 1.5rem;
+}
+
+.callStatement {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.callingIndicator,
+.returnIndicator {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    animation: slideIn 0.3s ease;
+}
+
+.callingIndicator {
+    background: rgba(246, 173, 85, 0.2);
+    border: 1px solid #f6ad55;
+    color: #f6ad55;
+}
+
+.returnIndicator {
+    background: rgba(72, 187, 120, 0.2);
+    border: 1px solid #48bb78;
+    color: #48bb78;
+}
+
+.parameters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.paramItem {
+    flex: 1;
+    background: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.paramName {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.paramValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+}
+
+.computation {
+    background: rgba(245, 101, 101, 0.1);
+    border: 1px solid rgba(245, 101, 101, 0.3);
+    color: #f56565;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-family: 'Fira Code', monospace;
+    margin-bottom: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+.resultBox {
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid var(--accent-purple);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+.resultLabel {
+    font-weight: 600;
+}
+
+.resultValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+}
+
+.arrowDown,
+.arrowUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.arrowLine {
+    width: 2px;
+    height: 40px;
+    background: var(--accent-purple);
+}
+
+.arrowHead {
+    font-size: 1.5rem;
+    color: var(--accent-purple);
+}
+
+.arrowLabel {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    background: var(--bg-card);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+}
+
+/* History Section */
+.historySection {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.historyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.historyHeader h3 {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.historyList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.noHistory {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+}
+
+.historyItem {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--accent-purple);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+.callNumber {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    min-width: 30px;
+}
+
+.callExpression {
+    flex: 1;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+}
+
+.callResult {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-purple);
+}
+
+/* Controls Section */
+.controlsSection {
+    margin-top: 1.5rem;
+}
+
+.typeSelector {
+    margin-bottom: 1.5rem;
+}
+
+.typeButtons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.variableControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+/* Info Panel */
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infoCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.infoCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.infoCard p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.quickInfo {
+    margin-top: 1.5rem;
+}
+
+.quickInfo h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.quickInfo ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quickInfo li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.quickInfo li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-purple);
+}
+
+/* Code Card */
+.codeCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.codeHeader {
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerIcon {
+        font-size: 2.5rem;
+    }
+
+    .variableControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

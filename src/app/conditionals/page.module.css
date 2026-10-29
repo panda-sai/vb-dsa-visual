@@ -1,0 +1,344 @@
+.page {
+    padding: 2rem 0 4rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerIcon {
+    font-size: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.headerSubtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Main Grid */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: minmax(0, 1fr) 380px;
+    }
+}
+
+/* Visualization Panel */
+.visualizationPanel {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+}
+
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.panelHeader h2 {
+    font-size: 1.25rem;
+}
+
+/* Flow Diagram */
+.flowDiagram {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    overflow-x: auto;
+}
+
+.variablesBox {
+    padding: 1rem 2rem;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid var(--accent-purple);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+}
+
+.conditionBox {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    min-width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.conditionBox.evaluating {
+    border-color: #f6ad55;
+    box-shadow: 0 0 20px rgba(246, 173, 85, 0.3);
+    animation: pulse 1s infinite;
+}
+
+.conditionBox.conditionTrue {
+    border-color: #48bb78;
+    background: rgba(72, 187, 120, 0.1);
+}
+
+.conditionBox.conditionFalse {
+    border-color: #f56565;
+    background: rgba(245, 101, 101, 0.1);
+}
+
+.secondaryCondition {
+    margin-top: 1rem;
+}
+
+.conditionLabel {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.conditionText {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+}
+
+.conditionResult {
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.conditionTrue .conditionResult {
+    color: #48bb78;
+}
+
+.conditionFalse .conditionResult {
+    color: #f56565;
+}
+
+.branches {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.branch {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.branch.active {
+    opacity: 1;
+}
+
+.branchLabel {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.branchBox {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.branch.active .branchBox {
+    background: rgba(139, 92, 246, 0.2);
+    color: var(--text-primary);
+    border-color: var(--accent-purple);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    transform: scale(1.02);
+}
+
+.endBox {
+    padding: 1rem 3rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.endBox.complete {
+    background: rgba(72, 187, 120, 0.2);
+    color: #48bb78;
+    border: 1px solid #48bb78;
+}
+
+/* Controls Section */
+.controlsSection {
+    margin-top: 1.5rem;
+}
+
+.typeSelector {
+    margin-bottom: 1.5rem;
+}
+
+.typeButtons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.variableControls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+/* Info Panel */
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infoCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.infoCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.infoCard p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.quickInfo {
+    margin-top: 1.5rem;
+}
+
+.quickInfo h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.quickInfo ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quickInfo li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.quickInfo li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-purple);
+}
+
+/* Code Card */
+.codeCard {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.codeHeader {
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerIcon {
+        font-size: 2.5rem;
+    }
+
+    .flowDiagram {
+        padding: 1rem;
+    }
+
+    .conditionBox {
+        min-width: 250px;
+    }
+
+    .variableControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "vb-dsa-visual",
+  "version": "0.1.0",
+  "description": "Interactive, step-by-step visualizations of programming fundamentals and data structures.",
+  "license": "MIT",
+  "author": "Vamsi Bhavani",
+  "homepage": "https://github.com/panda-sai/vb-dsa-visual#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panda-sai/vb-dsa-visual.git"
+  },
+  "bugs": {
+    "url": "https://github.com/panda-sai/vb-dsa-visual/issues"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
