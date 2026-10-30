@@ -1,0 +1,504 @@
+.page {
+    padding: 2.5rem 0 4rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.headerIcon {
+    display: grid;
+    place-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    flex: 0 0 4.5rem;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    font-size: 2.5rem;
+}
+
+.eyebrow {
+    color: var(--accent-cyan);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 0.4rem;
+}
+
+.subtitle,
+.sectionHeading p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (min-width: 1100px) {
+    .contentGrid {
+        grid-template-columns: minmax(0, 1fr) 350px;
+    }
+}
+
+.mainPanel,
+.infoCard,
+.codeCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+}
+
+.mainPanel {
+    min-width: 0;
+    padding: 1.5rem;
+}
+
+.sectionHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.sectionHeading h2,
+.infoCard h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.sectionHeading p {
+    font-size: 0.88rem;
+}
+
+.count,
+.running {
+    border-radius: var(--radius-full);
+    padding: 0.35rem 0.7rem;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.running {
+    color: var(--accent-cyan);
+}
+
+.processTableWrap,
+.resultsTableWrap {
+    overflow-x: auto;
+}
+
+.processTable,
+.resultsTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.processTable th,
+.processTable td,
+.resultsTable th,
+.resultsTable td {
+    padding: 0.75rem 0.65rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.processTable thead th,
+.resultsTable thead th {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.processTable tbody th,
+.resultsTable tbody th {
+    font-weight: 600;
+}
+
+.processId {
+    display: inline-flex;
+    min-width: 2.5rem;
+    justify-content: center;
+    padding: 0.35rem 0.55rem;
+    border-radius: var(--radius-sm);
+    background: rgba(139, 92, 246, 0.14);
+    color: var(--accent-purple);
+}
+
+.numberInput {
+    width: 6.5rem;
+    max-width: 100%;
+    padding: 0.55rem 0.65rem;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    outline: none;
+}
+
+.numberInput:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.18);
+}
+
+.numberInput:disabled {
+    opacity: 0.6;
+}
+
+.removeButton {
+    border: 0;
+    background: transparent;
+    color: var(--accent-red);
+    font: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.removeButton:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.actions,
+.primaryActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.actions {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1rem 0 1.25rem;
+}
+
+.primaryActions {
+    margin-left: auto;
+}
+
+.ganttSection,
+.resultsSection {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.ganttScroll {
+    overflow-x: auto;
+    padding: 0.5rem 0 0.75rem;
+}
+
+.ganttTrack {
+    display: flex;
+    min-width: 100%;
+    min-height: 6rem;
+    align-items: stretch;
+    gap: 3px;
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.ganttSegment {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 3.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.25rem;
+    overflow: hidden;
+    animation: segment-in 0.35s ease-out both;
+}
+
+.ganttSegment strong {
+    font-size: 0.9rem;
+}
+
+.ganttSegment span {
+    font-size: 0.75rem;
+    opacity: 0.85;
+    white-space: nowrap;
+}
+
+.processSegment {
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid var(--accent-purple);
+    color: var(--text-primary);
+}
+
+.idleSegment {
+    background: var(--bg-tertiary);
+    border: 1px dashed var(--border-medium);
+    color: var(--text-muted);
+}
+
+.timelineCaption {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.5rem 0.25rem 0;
+}
+
+.emptyChart {
+    display: grid;
+    min-height: 8rem;
+    place-content: center;
+    justify-items: center;
+    gap: 0.65rem;
+    padding: 1.25rem;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border-medium);
+    border-radius: var(--radius-md);
+}
+
+.emptyChart span {
+    color: var(--accent-purple);
+    font-size: 1.8rem;
+}
+
+.emptyChart p {
+    max-width: 24rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.resultsTable {
+    font-variant-numeric: tabular-nums;
+}
+
+.averageCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.averageCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+}
+
+.averageCard span {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.averageCard strong {
+    font-size: 1.5rem;
+    color: var(--accent-cyan);
+    font-variant-numeric: tabular-nums;
+}
+
+.formulaNote {
+    margin-top: 0.9rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.infoCard {
+    padding: 1.35rem;
+}
+
+.infoCard p,
+.infoCard li,
+.terms dd {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.infoCard ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding-left: 1.2rem;
+    margin-top: 0.9rem;
+}
+
+.complexity {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    text-align: center;
+    color: var(--accent-purple);
+    background: rgba(139, 92, 246, 0.12);
+    border-radius: var(--radius-md);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+}
+
+.codeCard {
+    overflow: hidden;
+}
+
+.codeHeader {
+    padding: 0.8rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.codeBlock {
+    padding: 0.65rem 0;
+    overflow-x: auto;
+    background: var(--bg-secondary);
+}
+
+.codeLine {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.3rem 0.85rem;
+    white-space: pre;
+    color: var(--text-secondary);
+    font-size: 0.74rem;
+}
+
+.codeLine code {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+}
+
+.activeCodeLine {
+    background: rgba(139, 92, 246, 0.2);
+    border-left: 3px solid var(--accent-purple);
+    color: var(--text-primary);
+}
+
+.lineNumber {
+    min-width: 1rem;
+    color: var(--text-muted);
+    text-align: right;
+    user-select: none;
+}
+
+.terms {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 0.9rem;
+}
+
+.terms dt {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.terms dd {
+    margin-top: 0.15rem;
+    font-size: 0.82rem;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@keyframes segment-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .page {
+        padding-top: 1.5rem;
+    }
+
+    .header {
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+
+    .headerIcon {
+        width: 3.5rem;
+        height: 3.5rem;
+        flex-basis: 3.5rem;
+        font-size: 1.9rem;
+    }
+
+    .mainPanel {
+        padding: 1rem;
+    }
+
+    .processTable th,
+    .processTable td,
+    .resultsTable th,
+    .resultsTable td {
+        padding: 0.65rem 0.4rem;
+        font-size: 0.82rem;
+    }
+
+    .numberInput {
+        width: 4.5rem;
+    }
+
+    .actions {
+        align-items: stretch;
+    }
+
+    .primaryActions {
+        width: 100%;
+    }
+
+    .primaryActions button {
+        flex: 1;
+    }
+
+    .averageCards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ganttSegment {
+        animation: none;
+    }
+}
