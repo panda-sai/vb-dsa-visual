@@ -61,6 +61,7 @@ export default function GraphsPage() {
     const [statusMessage, setStatusMessage] = useState('Click on canvas to add nodes');
     const [statusType, setStatusType] = useState<'info' | 'success' | 'error'>('info');
     const [isAnimating, setIsAnimating] = useState(false);
+    const [speed, setSpeed] = useState(500);
     const [traversalPath, setTraversalPath] = useState<string[]>([]);
     const [currentCode, setCurrentCode] = useState<string | null>(null);
 
@@ -129,7 +130,7 @@ export default function GraphsPage() {
             path.push(nodeValue);
             setTraversalPath([...path]);
 
-            await new Promise(r => setTimeout(r, 800));
+            await new Promise(r => setTimeout(r, speed));
         }
 
         setCurrentNodeId(null);
@@ -250,6 +251,13 @@ export default function GraphsPage() {
 
                         <div className={`status-message ${statusType === 'success' ? 'success' : statusType === 'error' ? 'error' : ''}`}>
                             {statusMessage}
+                        </div>
+
+                        <div className={styles.controlsSection}>
+                            <div className={styles.controlRow}>
+                                <label className="control-label" htmlFor="graph-animation-speed">Speed:</label>
+                                <input id="graph-animation-speed" type="range" min="100" max="1000" step="100" value={1100 - speed} onChange={(e) => setSpeed(1100 - Number(e.target.value))} disabled={isAnimating} />
+                            </div>
                         </div>
 
                         {traversalPath.length > 0 && (

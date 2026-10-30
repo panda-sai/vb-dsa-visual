@@ -57,6 +57,7 @@ export default function HeapsPage() {
     const [statusMessage, setStatusMessage] = useState('Start by inserting some numbers');
     const [statusType, setStatusType] = useState<'info' | 'success' | 'error'>('info');
     const [isAnimating, setIsAnimating] = useState(false);
+    const [speed, setSpeed] = useState(500);
     const [currentOperation, setCurrentOperation] = useState<'insert' | 'extract' | null>(null);
 
     const handleInsert = async () => {
@@ -78,7 +79,7 @@ export default function HeapsPage() {
             setHeap(step.heap);
             setHighlightIndices(step.highlight);
             setActiveIndex(step.active);
-            await new Promise(r => setTimeout(r, 800));
+            await new Promise(r => setTimeout(r, speed));
         }
 
         setStatusMessage(`Inserted ${val}`);
@@ -99,7 +100,7 @@ export default function HeapsPage() {
             setHeap(step.heap);
             setHighlightIndices(step.highlight);
             setActiveIndex(step.active);
-            await new Promise(r => setTimeout(r, 800));
+            await new Promise(r => setTimeout(r, speed));
         }
 
         setStatusMessage(`Extracted root`);
@@ -128,7 +129,7 @@ export default function HeapsPage() {
                 setHighlightIndices(step.highlight);
                 setActiveIndex(step.active);
                 // Fast animation for random generation
-                await new Promise(r => setTimeout(r, 200));
+                await new Promise(r => setTimeout(r, speed));
             }
         }
 
@@ -282,6 +283,10 @@ export default function HeapsPage() {
 
                         <div className={styles.controlsSection}>
                             <div className={styles.operationControls}>
+                                <div className={styles.controlRow}>
+                                    <label className="control-label" htmlFor="heap-animation-speed">Speed:</label>
+                                    <input id="heap-animation-speed" type="range" min="100" max="1000" step="100" value={1100 - speed} onChange={(e) => setSpeed(1100 - Number(e.target.value))} disabled={isAnimating} />
+                                </div>
                                 <div className={styles.controlRow}>
                                     <input
                                         type="number"
