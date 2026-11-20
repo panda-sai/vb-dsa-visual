@@ -114,6 +114,7 @@ export default function TreesPage() {
     const [highlightNodeId, setHighlightNodeId] = useState<string | null>(null);
     const [traversalPath, setTraversalPath] = useState<number[]>([]);
     const [isAnimating, setIsAnimating] = useState(false);
+    const [speed, setSpeed] = useState(500);
     const [currentOperation, setCurrentOperation] = useState<string>('BST_insert');
 
     const handleInsert = () => {
@@ -156,7 +157,7 @@ export default function TreesPage() {
         let current = treeLogic.root;
         while (current) {
             setHighlightNodeId(current.id);
-            await new Promise(r => setTimeout(r, 500));
+            await new Promise(r => setTimeout(r, speed));
 
             if (val === current.value) {
                 setStatusMessage(`Found ${val}!`);
@@ -189,7 +190,7 @@ export default function TreesPage() {
             setTraversalPath([...path]);
             // Find node to highlight
             // Note: In a real app we'd map values back to IDs or store IDs in traversal
-            await new Promise(r => setTimeout(r, 500));
+            await new Promise(r => setTimeout(r, speed));
         }
 
         setStatusMessage(`${type} traversal complete`);
@@ -313,6 +314,10 @@ export default function TreesPage() {
 
                         <div className={styles.controlsSection}>
                             <div className={styles.operationControls}>
+                                <div className={styles.controlRow}>
+                                    <label className="control-label" htmlFor="tree-animation-speed">Speed:</label>
+                                    <input id="tree-animation-speed" type="range" min="100" max="1000" step="100" value={1100 - speed} onChange={(e) => setSpeed(1100 - Number(e.target.value))} disabled={isAnimating} />
+                                </div>
                                 <div className={styles.controlRow}>
                                     <input
                                         type="number"
