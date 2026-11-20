@@ -10,7 +10,7 @@ function TopicCard({ topic, index }: { topic: TopicConfig; index: number }) {
     const getIcon = (slug: string) => {
         const icons: Record<string, string> = {
             'arrays': '📊', 'strings': '🔤', 'hashing': '🔑', 'linked-lists': '🔗',
-            'stacks': '📚', 'queues': '🚶‍♂️', 'trees': '🌳', 'graphs': '🕸️', 'heaps': '🏔️',
+            'stacks': '📚', 'queues': '🚶‍♂️', 'trees': '🌳', 'graphs': '🕸️', 'heaps': '🏔️', 'process-scheduling': '🖥️',
             'conditionals': '🔀', 'loops': '🔄', 'functions': '⚙️', 'recursion': '🔁',
         };
         return icons[slug] || '📁';
