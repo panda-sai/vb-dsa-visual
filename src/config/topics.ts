@@ -28,10 +28,9 @@ export const TOPICS_CONFIG: TopicConfig[] = [
     { id: '12', slug: 'graphs', title: 'Graphs', category: 'data-structures', difficulty: 'Advanced', status: 'active' },
     { id: '13', slug: 'heaps', title: 'Heaps', category: 'data-structures', difficulty: 'Intermediate', status: 'active' },
 
-
     // Placeholder topics for other categories
     { id: '101', slug: 'sorting', title: 'Sorting Algorithms', category: 'algorithms', difficulty: 'Intermediate', status: 'coming-soon' },
-    { id: '201', slug: 'process-scheduling', title: 'Process Scheduling', category: 'operating-systems', difficulty: 'Intermediate', status: 'coming-soon' },
+    { id: '201', slug: 'process-scheduling', title: 'Process Scheduling', category: 'operating-systems', difficulty: 'Intermediate', status: 'active' },
 ];
 
 export const SUBJECTS_CONFIG = [
